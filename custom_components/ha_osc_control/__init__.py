@@ -151,7 +151,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             
             # Add entity
             hass.data[DOMAIN][entry.entry_id]["buttons"].append(button)
-            await hass.config_entries.async_forward_entry_setups(entry, Platform.BUTTON)
+            await hass.config_entries.async_forward_entry_setups(entry, [Platform.BUTTON])
             _LOGGER.info("Added OSC button: %s", name)
         
         async def handle_add_slider(call: ServiceCall) -> None:
